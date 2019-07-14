@@ -10,9 +10,7 @@ from rest_framework_simplejwt.views import (
 urlpatterns = [
     url(r'^api/token/$', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     url(r'^api/token/refresh/$', TokenRefreshView.as_view(), name='token_refresh'),
-    url(r'^hello/$', views.HelloView.as_view(), name='hello'),
     url(r'', views.fyleAPI.as_view ()),
-    url(r'^hello/$', views.HelloView.as_view(), name='hello'),
     url(r'^admin/', admin.site.urls),
 
 ]
