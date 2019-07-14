@@ -12,7 +12,7 @@ class HelloView(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        print("\n\n\n",request.headers,"\n\n\n")
+        #print("\n\n\n",request,"\n\n\n")
         content = {'message': 'Hello, World!'}
         return Response(content)
 
@@ -27,9 +27,9 @@ class fyleAPI (APIView):
             ifsc_code = request.GET['ifsc']
             branches = Branch.objects.filter (ifsc = ifsc_code)
             serializer = BranchSerializer (branches, many = True)
-            content = {'message':serializer.data}
-            #return Response (serializer.data)
-            return Response (content)
+            #content = {'message':serializer.data}
+            return Response (serializer.data)
+            #return Response (content)
         except:
             try:
                 b = request.GET['bank']
@@ -39,8 +39,9 @@ class fyleAPI (APIView):
                     id = Bank.objects.get(name=b)
                     branches = Branch.objects.filter (bank_id = id, city = c)
                     serializer = BranchSerializer (branches, many = True)
-                    content={'message':serializer.data}
-                    return Response (content)
+                    #content={'message':serializer.data}
+                    #return Response (content)
+                    return Response (serializer.data)
                 except:
                     #print("\n\n\n Error here 2 \n\n\n")
                     pass
