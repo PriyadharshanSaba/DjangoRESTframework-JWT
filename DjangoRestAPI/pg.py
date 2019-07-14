@@ -10,8 +10,14 @@ password = 'aed79670385686eadee6afe4d13efac16bf37cb196d32cf2dbf833d31037e37f'
 database = 'd5bt2r3nq1onrl'
 
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> aada3a5f18bc040113830b54c298fa1e94ba506b
+=======
+>>>>>>> aada3a5f18bc040113830b54c298fa1e94ba506b
 """
 
 df = pd.read_csv('if.csv',sep='\t')

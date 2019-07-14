@@ -9,6 +9,7 @@ django-heroku = "*"
 gunicorn = "*"
 Pipfile = "*"
 djangorestframework = "*"
+djangorestframework-simplejwt = "*"
 
 [requires]
 python_version = "3.6"
