@@ -35,6 +35,7 @@ django-anymail==0.7
 django-debug-toolbar==1.6
 django-dotenv==1.4.2
 django-easy-pdf==0.1.1
+django-environ
 django-extensions==2.1.9
 django-filter==2.1.0
 django-heroku==0.3.1

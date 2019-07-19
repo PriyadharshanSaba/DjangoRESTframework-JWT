@@ -2,19 +2,20 @@ import os
 import django_heroku
 import django
 from datetime import timedelta
+import environ
+import dj_database_url
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+ROOT_DIR = environ.Path(__file__) - 2
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
+env = environ.Env()
+env_file = ROOT_DIR('.env') # assume it is in project_root
+env.read_env(env_file)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's4#q*1g07^@_mf%0$$u4ptu=ypjym6)c^28&z)8lnw72s^*2!8'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+SECRET_KEY = env.str('DJANGO_SECRET_KEY')
 
 ALLOWED_HOSTS = ['fyleapi.herokuapp.com']
 
@@ -36,6 +37,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 1,
 }
 
 
@@ -95,26 +99,15 @@ WSGI_APPLICATION = 'DjangoRestAPI.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-"""
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-"""
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5bt2r3nq1onrl',
-        'USER': 'belcxwhmvoskmv',
-        'PASSWORD': 'aed79670385686eadee6afe4d13efac16bf37cb196d32cf2dbf833d31037e37f',
-        'HOST': 'ec2-54-243-47-196.compute-1.amazonaws.com',
-        'PORT': '5432'
-    }
-}
+
+DATABASES['default'] = dj_database_url.config(default=env.str('DATABASE_URL'))
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
