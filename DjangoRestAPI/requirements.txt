@@ -52,7 +52,7 @@ docutils==0.14
 durationpy==0.5
 elasticsearch==6.3.1
 enum-compat==0.0.2
-enum34==1.1.6
+enum34==1.1.6s
 et-xmlfile==1.0.1
 flake8==3.5.0
 Flask==0.11.1

@@ -15,10 +15,14 @@ This is JWT authenticated. You will need a valid access tocken inorder to access
 
 
 <h3>Example API calls:</h3>
-1. IFSC:	curl -X GET -H 'Accept: application/json' -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYzNTU3MDU4LCJqdGkiOiJjZWQyYTQyYzQwMjU0OTI5OTE3NDNhMTY1OThjOGU2MyIsInVzZXJfaWQiOjF9.kkE4Fe6xb49C3Qs7UpknVS1VluvbnwN_x0FGsVO9vuc" https://fyleapi.herokuapp.com/?ifsc=ABHY0065003
-2. BANK/CITY: curl -X GET -H 'Accept: application/json' -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYzNTY1NDQ0LCJqdGkiOiI2MmQ3Njg0YjRhZmE0Y2Y0OGQ4ZWUyNzY0M2E3NmE1ZCIsInVzZXJfaWQiOjF9.nhjEYpHIkYmoDHNSJXzQRwnLlAmQ3ghrCAkaaoelgvw" https://fyleapi.herokuapp.com/?bank=ABHYUDAYA_COOPERATIVE_BANK_LIMITED/city=MUMBAI
+1. IFSC:	curl -X GET -H 'Accept: application/json' -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYzOTY0OTMzLCJqdGkiOiJhNDJlODU3ZGIzNTI0NmIxOTc1ZjU1OGQ3ZWU0ZjhiZSIsInVzZXJfaWQiOjF9.arJWRI1IS35VYMxABOP20ESUPwnPdpWCM67woSEJ14U"  https://fyleapi.herokuapp.com/?ifsc=ABHY0065003
+2. BANK/CITY:     curl -X GET -H 'Accept: application/json' -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYzOTY0OTMzLCJqdGkiOiJhNDJlODU3ZGIzNTI0NmIxOTc1ZjU1OGQ3ZWU0ZjhiZSIsInVzZXJfaWQiOjF9.arJWRI1IS35VYMxABOP20ESUPwnPdpWCM67woSEJ14U" -G "https://fyleapi.herokuapp.com/?" --data-urlencode "bank=ABHYUDAYA COOPERATIVE BANK LIMITED/city=MUMBAI" 
 
+<br><br>
 
+<h3>Including Offset and Limits:</h3>
 
+Example Request:	[ limit = 10 | offset = 3]
 
+curl -X GET -H 'Accept: application/json' -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNTYzOTY0OTMzLCJqdGkiOiJhNDJlODU3ZGIzNTI0NmIxOTc1ZjU1OGQ3ZWU0ZjhiZSIsInVzZXJfaWQiOjF9.arJWRI1IS35VYMxABOP20ESUPwnPdpWCM67woSEJ14U" -G "https://fyleapi.herokuapp.com/?" --data-urlencode "bank=ABHYUDAYA COOPERATIVE BANK LIMITED/city=MUMBAI/limit=10/offset=3"
 

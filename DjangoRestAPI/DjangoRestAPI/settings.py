@@ -95,6 +95,8 @@ TEMPLATES = [
     },
 ]
 
+DEBUG = env.str('DEBUG')
+
 WSGI_APPLICATION = 'DjangoRestAPI.wsgi.application'
 
 
