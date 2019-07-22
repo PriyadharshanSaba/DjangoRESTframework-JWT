@@ -18,7 +18,6 @@ class fyleAPI (APIView):
     permission_classes = (IsAuthenticated,)
     def get (self, request):
         branches = None
-        br_list = []
         try:
             if request.GET.getlist('ifsc'):
                 ifsc_code = request.GET['ifsc'].split('/')[0]
@@ -31,13 +30,12 @@ class fyleAPI (APIView):
                 c = req[1][5:]
                 id = None
                 id = Bank.objects.get(name=b)
+                o = l = 0
                 if len(req) > 2:
                     l = int(req[2][6:])
                     o = int(req[3][7:])
                     branches = Branch.objects.filter (bank_id = id, city = c)[o:l]      #added the offset and limiting value here
                 else:
-                    l = 0
-                    o = 0
                     branches = Branch.objects.filter (bank_id = id, city = c)
                 serializer = BranchSerializer (branches, many = True)
             return Response (serializer.data)

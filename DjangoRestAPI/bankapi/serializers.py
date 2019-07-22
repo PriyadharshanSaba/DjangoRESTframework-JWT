@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Bank, Branch
-from rest_framework import generics
+#from rest_framework import generics
 
 class BankSerializer (serializers.ModelSerializer):
 
